@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="banner" style="background-color: #fff9c4; border: 2px solid black; padding: 20px; width: fit-content; margin-bottom: 20px;">
+    <h2 style="margin-top: 0;">Hello! This is my webpage. My name is Heinrich Santos</h2>
+    <ul id="hobby-list">
+        <li>I am a Third year Computer Science Student here in EAC - Cavite</li>
+        <li>My hobbies include sleeping and sleeping</li>
+    </ul>
+</div>
+
+<label for="new-item">Add New:</label>
+<input type="text" id="new-item" placeholder="Type a new goal...">
+<br><br>
+
+<button id="add-btn">Add new item on the list</button>
+<button id="font-btn">Change the font family</button>
+<button id="bold-btn">Make items appear bold</button>
+
+    <script>
+
+        const hobbyList = document.getElementById('hobby-list');
+        const itemInput = document.getElementById('new-item');
+        const addBtn = document.getElementById('add-btn');
+        const fontBtn = document.getElementById('font-btn');
+        const boldBtn = document.getElementById('bold-btn');
+
+
+        addBtn.addEventListener('click', function() {
+            const textValue = itemInput.value;
+            
+            if (textValue.trim() !== "") { 
+                const newLi = document.createElement('li');
+                newLi.textContent = textValue;
+                hobbyList.appendChild(newLi);
+                itemInput.value = "";
+            } else {
+                alert("Please enter something first!");
+            }
+        });
+
+
+        fontBtn.addEventListener('click', function() {
+
+            if (hobbyList.style.fontFamily === "cursive") {
+                hobbyList.style.fontFamily = "sans-serif";
+            } else {
+                hobbyList.style.fontFamily = "cursive";
+            }
+        });
+
+
+        boldBtn.addEventListener('click', function() {
+            if (hobbyList.style.fontWeight === "bold") {
+                hobbyList.style.fontWeight = "normal";
+            } else {
+                hobbyList.style.fontWeight = "bold";
+            }
+        });
+    </script>
+</body>
+</html>
